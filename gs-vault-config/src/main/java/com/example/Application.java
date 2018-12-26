@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties(MyConfiguration.class)
 public class Application implements CommandLineRunner {
+	Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     private final MyConfiguration configuration;
 
@@ -23,9 +24,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
-        Logger LOGGER = LoggerFactory.getLogger(Application.class);
-
         LOGGER.info("----------------------------------------");
         LOGGER.info("Configuration properties");
         LOGGER.info("        example.username is {}", configuration.getUsername());
